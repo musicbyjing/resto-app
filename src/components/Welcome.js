@@ -2,6 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
+import SearchBar from "./SearchBar";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -30,6 +31,7 @@ export default function PaperSheet() {
           Send your location to get a list of the worst restaurants in your
           area.
         </Typography>
+        <SearchBar />
       </Paper>
     </div>
   );
