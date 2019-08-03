@@ -1,17 +1,20 @@
 import React from "react";
-import Header from "./components/Header";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+// import Header from "./components/Header";
 import Welcome from "./components/Welcome";
-import List from "./components/List";
+// import List from "./components/List";
 import MapContainer from "./components/MapContainer";
-import SearchBar from "./components/SearchBar";
+// import SearchBar from "./components/SearchBar";
 import "./App.css";
 
 function App() {
   return (
-    <React.Fragment>
-      <Welcome />
-      {/* <MapContainer /> */}
-    </React.Fragment>
+    <Router>
+      <div className="App">
+        <Route exact path="/" render={props => <Welcome />} />
+        <Route path="/results" render={props => <MapContainer />} />
+      </div>
+    </Router>
   );
 }
 
