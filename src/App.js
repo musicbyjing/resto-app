@@ -4,16 +4,16 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Welcome from "./components/Welcome";
 // import List from "./components/List";
 import MapContainer from "./components/MapContainer";
-// import SearchBar from "./components/SearchBar";
-import "./App.css";
+import AppContainer from "./components/AppContainer";
+import "./App.scss";
 
 function App() {
   return (
     <Router>
-      <div className="App">
+      <AppContainer>
         <Route exact path="/" render={props => <Welcome />} />
-        <Route path="/results" render={props => <MapContainer />} />
-      </div>
+        <Route exact path="/results" render={props => <MapContainer />} />
+      </AppContainer>
     </Router>
   );
 }

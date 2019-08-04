@@ -1,38 +1,31 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
-import Typography from "@material-ui/core/Typography";
 import SearchBar from "./SearchBar";
-
-const useStyles = makeStyles(theme => ({
-  root: {
-    padding: theme.spacing(3, 2),
-    textAlign: "center"
-  }
-}));
+import "../App.scss";
 
 const flexStyle = {
+  margin: "auto",
+  padding: "1em",
   display: "flex",
+  flexDirection: "column",
   alignItems: "center",
   justifyContent: "center",
-  height: "100vh"
+  maxHeight: "20vh",
+  maxWidth: "30vw",
+  backgroundColor: "#ECE5CE",
+  boxShadow: "0.2em 0.2em #F1D4AF"
 };
 
-export default function PaperSheet() {
-  const classes = useStyles();
-
-  return (
-    <div style={flexStyle}>
-      <Paper className={classes.root}>
-        <Typography variant="h5" component="h3">
-          Welcome
-        </Typography>
-        <Typography component="p">
+export default class Welcome extends React.Component {
+  render() {
+    return (
+      <div style={flexStyle}>
+        <h1>Welcome </h1>
+        <p>
           Send your location to get a list of the worst restaurants in your
           area.
-        </Typography>
+        </p>
         <SearchBar />
-      </Paper>
-    </div>
-  );
+      </div>
+    );
+  }
 }
