@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Beth+Ellen|Roboto&display=swap");
+
 // Colour palette: https://www.colourlovers.com/palette/49963/let_them_eat_cake
 $brown: "#774F38";
 $pink: "#E08E79";
@@ -5,10 +7,18 @@ $beige-cold: "#ECE5CE";
 $beige-warm: "#F1D4AF";
 $teal: "#C5E0DC";
 
+* {
+  font-family: "Roboto", sans-serif;
+}
+
 .App {
   text-align: center;
   height: 100%;
   width: 100%;
+}
+
+.title {
+  font-family: "Beth Ellen", cursive;
 }
 
 .AppContainer {

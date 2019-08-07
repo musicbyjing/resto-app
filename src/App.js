@@ -1,23 +1,28 @@
-import React from "react";
+import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-// import Header from "./components/Header";
 import Welcome from "./components/Welcome";
-// import List from "./components/List";
 import MapContainer from "./components/MapContainer";
 import "./App.scss";
-import SearchBar from "./components/SearchBar";
 
-export default class App extends React.Component {
+export default class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { value: "" };
+    this.state = { value: "", isSubmitted: false };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleSubmit(event) {
     event.preventDefault();
     this.setState({
-      value: event.target.search.value
+      value: event.target.search.value,
+      isSubmitted: true
+    });
+  }
+
+  handleClick(event) {
+    this.setState({
+      isSubmitted: false
     });
   }
 
@@ -28,9 +33,17 @@ export default class App extends React.Component {
           <Route
             exact
             path="/"
-            render={props => <Welcome handleSubmit={this.handleSubmit} />}
+            render={props => (
+              <>
+                {!this.state.isSubmitted && (
+                  <Welcome handleSubmit={this.handleSubmit} />
+                )}
+                {this.state.isSubmitted && (
+                  <MapContainer handleClick={this.handleClick} />
+                )}
+              </>
+            )}
           />
-          <Route exact path="/results" render={props => <MapContainer />} />
         </div>
       </Router>
     );
