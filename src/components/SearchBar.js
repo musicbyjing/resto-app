@@ -4,16 +4,7 @@ export default class SearchBar extends Component {
   constructor(props) {
     super(props);
     this.state = { value: "" };
-    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleSubmit(event) {
-    event.preventDefault();
-    // this.setState({
-    //   value: event.target.value
-    // });
-    console.log(this.state);
   }
 
   handleChange(event) {
@@ -23,12 +14,13 @@ export default class SearchBar extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.props.handleSubmit}>
         <input
           type="text"
           placeholder="Search..."
           onChange={this.handleChange}
           value={this.state.value}
+          name="search"
         />
         <input type="submit" />
       </form>

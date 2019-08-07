@@ -16,6 +16,11 @@ const flexStyle = {
 };
 
 export default class Welcome extends React.Component {
+  // constructor(props) {
+  //   super(props);
+  //   this.state = { value: "" };
+  // }
+
   render() {
     return (
       <div style={flexStyle}>
@@ -24,7 +29,7 @@ export default class Welcome extends React.Component {
           Send your location to get a list of the worst restaurants in your
           area.
         </p>
-        <SearchBar />
+        <SearchBar handleSubmit={this.props.handleSubmit} />
       </div>
     );
   }

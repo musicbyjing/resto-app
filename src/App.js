@@ -4,18 +4,35 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Welcome from "./components/Welcome";
 // import List from "./components/List";
 import MapContainer from "./components/MapContainer";
-import AppContainer from "./components/AppContainer";
 import "./App.scss";
+import SearchBar from "./components/SearchBar";
 
-function App() {
-  return (
-    <Router>
-      <AppContainer>
-        <Route exact path="/" render={props => <Welcome />} />
-        <Route exact path="/results" render={props => <MapContainer />} />
-      </AppContainer>
-    </Router>
-  );
+export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { value: "" };
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    this.setState({
+      value: event.target.search.value
+    });
+  }
+
+  render() {
+    return (
+      <Router>
+        <div className="AppContainer">
+          <Route
+            exact
+            path="/"
+            render={props => <Welcome handleSubmit={this.handleSubmit} />}
+          />
+          <Route exact path="/results" render={props => <MapContainer />} />
+        </div>
+      </Router>
+    );
+  }
 }
-
-export default App;
