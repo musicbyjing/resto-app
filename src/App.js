@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
 import Welcome from "./components/Welcome";
 import MapContainer from "./components/MapContainer";
 import "./App.scss";
@@ -28,24 +27,16 @@ export default class App extends Component {
 
   render() {
     return (
-      <Router>
-        <div className="AppContainer">
-          <Route
-            exact
-            path="/"
-            render={props => (
-              <>
-                {!this.state.isSubmitted && (
-                  <Welcome handleSubmit={this.handleSubmit} />
-                )}
-                {this.state.isSubmitted && (
-                  <MapContainer handleClick={this.handleClick} />
-                )}
-              </>
-            )}
-          />
-        </div>
-      </Router>
+      <div className="AppContainer">
+        <>
+          {!this.state.isSubmitted && (
+            <Welcome handleSubmit={this.handleSubmit} />
+          )}
+          {this.state.isSubmitted && (
+            <MapContainer handleClick={this.handleClick} />
+          )}
+        </>
+      </div>
     );
   }
 }
