@@ -7,13 +7,19 @@ export class MapContainer extends Component {
     this.state = { value: "" };
   }
 
+  fetchPlaces(mapProps, map) {
+    const { google } = mapProps;
+    const service = new google.maps.places.PlacesService(map);
+    // ...
+  }
+
   render() {
     return (
       <>
         <a href="#" onClick={this.props.handleClick}>
           Back
         </a>
-        <Map google={this.props.google} />
+        <Map google={this.props.google} onReady={this.fetchPlaces} />
       </>
     );
   }

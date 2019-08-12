@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Welcome from "./components/Welcome";
-import MapContainer from "./components/MapContainer";
+import PlacesListing from "./components/PlacesListing";
 import "./App.scss";
 
 export default class App extends Component {
@@ -33,7 +33,7 @@ export default class App extends Component {
             <Welcome handleSubmit={this.handleSubmit} />
           )}
           {this.state.isSubmitted && (
-            <MapContainer handleClick={this.handleClick} />
+            <PlacesListing handleClick={this.handleClick} />
           )}
         </>
       </div>
