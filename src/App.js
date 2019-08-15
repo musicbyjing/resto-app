@@ -33,7 +33,10 @@ export default class App extends Component {
             <Welcome handleSubmit={this.handleSubmit} />
           )}
           {this.state.isSubmitted && (
-            <PlacesListing handleClick={this.handleClick} />
+            <PlacesListing
+              handleClick={this.handleClick}
+              value={this.state.value}
+            />
           )}
         </>
       </div>

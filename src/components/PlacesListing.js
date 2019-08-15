@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 
 export class PlacesListing extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { results: {} };
+  }
+
   async componentDidMount() {
     try {
       const res = await `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=${
@@ -12,6 +17,7 @@ export class PlacesListing extends Component {
         throw Error(res.statusText);
       }
       const json = await res.json();
+
       this.setState({
         results: json
       });
@@ -21,16 +27,14 @@ export class PlacesListing extends Component {
   }
 
   render() {
+    console.log(this.state.results);
     return (
       <>
         <a href="#" onClick={this.props.handleClick}>
           Back
         </a>
         <div>
-          <ul>
-            <li>Cool</li>
-            <li>Story</li>
-          </ul>
+          <ul />
         </div>
       </>
     );
